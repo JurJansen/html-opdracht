@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linux commands</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <h1>Linux commands</h1>
+
+    <div class="hanCommands">
+        <h2>Algemeen handige commands: </h2>
+
+        <pre>
+
+            ls          # Lijst bestanden en mappen
+            tree        # Toon mappenstructuur als een boom
+            cd          # Verander van map
+            pwd         # Toon huidige map
+            mkdir       # Maak een nieuwe map
+            rm          # Verwijder bestanden of mappen
+            cp          # Kopieer bestanden of mappen
+            mv          # Verplaats of hernoem bestanden
+            cat         # Bekijk inhoud van een bestand
+            nano        # Tekstbestand bewerken
+            chmod       # Verander bestandsrechten
+            chown       # Verander eigenaar van een bestand
+            top         # Toon actieve processen
+            htop        # Verbeterde top (moet soms geïnstalleerd worden)
+            df -h       # Schijfruimte overzicht
+            du -h       # Grootte van mappen en bestanden
+
+    </pre>
+
+    </div>
+
+    <div class="hanCommands">
+        <h2>Debian specific commands: </h2>
+
+        <pre>
+
+            sudo apt update           # Update de lijst met beschikbare packages
+            sudo apt upgrade          # Upgrade alle geïnstalleerde packages
+            sudo apt install pkg      # Installeer een nieuwe package
+            sudo apt remove pkg       # Verwijder een package
+            sudo apt autoremove       # Verwijder ongebruikte packages
+            sudo apt search pkg       # Zoek naar een package
+            sudo apt show pkg         # Bekijk informatie over een package
+
+        </pre>
+
+    </div>
+
+        <div class="hanCommands">
+        <h2>Arch specific commands: </h2>
+        <h4>I use Arch btw.</h4>
+
+        <pre>
+
+            sudo pacman -Syu          # Update systeem en packages
+            sudo pacman -S pkg        # Installeer een package
+            sudo pacman -R pkg        # Verwijder een package
+            sudo pacman -Rs pkg       # Verwijder een package + ongebruikte dependencies
+            sudo pacman -Ss pkg       # Zoek naar een package
+            sudo pacman -Si pkg       # Bekijk info over een package
+            sudo pacman -Qi pkg       # Bekijk info over een geïnstalleerde package
+
+        </pre>
+
+    </div>
+
+    <footer class="footer">
+
+        <div class="linuxDownloads">
+            <h2>Handige downloads</h2>
+
+            <ul>
+                <li><a href="https://ubuntu.com/download/desktop">Ubuntu</a></li>
+                <li><a href="https://linuxmint.com/">Linux Mint</a></li>
+                <li><a href="https://www.debian.org/index.html">Debian</a></li>
+                <li><a href="https://archlinux.org/">Linux Arch</a></li>
+            </ul>
+        </div>
+
+        <div class="externalInfo">
+            <h2>Externe informatie</h2>
+
+            <ul>
+                <li><a href="https://nl.wikipedia.org/wiki/Linux">Linux Wikipedia</a></li>
+                <li><a href="https://ubuntu.com/tutorials/install-ubuntu-desktop#1-overview">Ubuntu install guide</a></li>
+                <li><a href="https://wiki.archlinux.org/title/Installation_guide">Arch install guide</a></li>
+            </ul>
+        </div>
+
+        <div class="ownWeb">
+            <h2>Eigen website</h2>
+
+            <ul>
+                <li><a href="https://yeezus.tech/index.html">yeezus.tech</a></li>
+            </ul>
+        </div>
+
+    </footer>
+
+    <script src="fullScreen.js"></script>
+</body>
+
+</html>
