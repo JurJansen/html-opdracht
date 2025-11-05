@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Linux commands</title>
+    <title>Linux Website</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -17,6 +17,22 @@
 
         <pre>
 
+        ls          # Lijst bestanden en mappen
+        tree        # Toon mappenstructuur als een boom
+        cd          # Verander van map
+        pwd         # Toon huidige map
+        mkdir       # Maak een nieuwe map
+        rm          # Verwijder bestanden of mappen
+        cp          # Kopieer bestanden of mappen
+        mv          # Verplaats of hernoem bestanden
+        cat         # Bekijk inhoud van een bestand
+        nano        # Tekstbestand bewerken
+        chmod       # Verander bestandsrechten
+        chown       # Verander eigenaar van een bestand
+        top         # Toon actieve processen
+        htop        # Verbeterde top (moet soms geïnstalleerd worden)
+        df -h       # Schijfruimte overzicht
+        du -h       # Grootte van mappen en bestanden
         ls          # Lijst bestanden en mappen
         tree        # Toon mappenstructuur als een boom
         cd          # Verander van map
@@ -50,6 +66,13 @@
         sudo apt autoremove       # Verwijder ongebruikte packages
         sudo apt search pkg       # Zoek naar een package
         sudo apt show pkg         # Bekijk informatie over een package
+        sudo apt update           # Update de lijst met beschikbare packages
+        sudo apt upgrade          # Upgrade alle geïnstalleerde packages
+        sudo apt install pkg      # Installeer een nieuwe package
+        sudo apt remove pkg       # Verwijder een package
+        sudo apt autoremove       # Verwijder ongebruikte packages
+        sudo apt search pkg       # Zoek naar een package
+        sudo apt show pkg         # Bekijk informatie over een package
 
         </pre>
 
@@ -61,6 +84,13 @@
 
         <pre>
 
+        sudo pacman -Syu          # Update systeem en packages
+        sudo pacman -S pkg        # Installeer een package
+        sudo pacman -R pkg        # Verwijder een package
+        sudo pacman -Rs pkg       # Verwijder een package + ongebruikte dependencies
+        sudo pacman -Ss pkg       # Zoek naar een package
+        sudo pacman -Si pkg       # Bekijk info over een package
+        sudo pacman -Qi pkg       # Bekijk info over een geïnstalleerde package
         sudo pacman -Syu          # Update systeem en packages
         sudo pacman -S pkg        # Installeer een package
         sudo pacman -R pkg        # Verwijder een package

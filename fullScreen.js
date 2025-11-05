@@ -1,3 +1,7 @@
+// ------------------------------------ \\
+// Medemogelijk gemaakt door ChatGPT :) \\
+// ------------------------------------ \\
+
 const pres = document.querySelectorAll('pre');
 
 pres.forEach(pre => {
