@@ -1,95 +1,241 @@
+:root {
+    /* Dark Theme Color Palette */
+    --bg-color: #0f0f23; /* Deep space blue */
+    --card-bg: rgba(255, 255, 255, 0.05); /* Semi-transparent white for glassmorphism */
+    --text-color: #e0e0e0;
+    --text-muted: #a0a0a0;
+    --primary-color: #1a1a2e;
+    --accent-color: #00d9ff; /* Bright cyan */
+    --accent-hover: #00a8cc;
+    --border-color: rgba(255, 255, 255, 0.1);
+    --shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    --border-radius: 16px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
 body {
-    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
-    background-color: #eee4ee;
-    color: #333;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    /* Background pattern for texture */
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(0, 217, 255, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(255, 0, 150, 0.05) 0%, transparent 50%);
+}
+
+header {
+    text-align: center;
+    padding: 4rem 1rem;
+    color: white;
+    position: relative;
+    overflow: hidden;
 }
 
 h1 {
-    font-size: 60px;
-    color: black;
-    text-align: center;
-    margin-bottom: 40px;
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem;
+    background: linear-gradient(90deg, var(--accent-color), #ff00a6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
-.hanCommands {
-    width: 60%;
-    background-color: gray;
-    border-radius: 40px;
-    color: black;
+header p {
+    margin: 0;
+    font-size: 1.2rem;
+    color: var(--text-muted);
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+.command-section {
+    margin-bottom: 3rem;
+}
+
+.command-section h2 {
+    font-size: 2rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+    color: var(--text-color);
     text-align: center;
-    padding: 40px;
-    margin: 60px auto;
     position: relative;
-    transition: all 0.7s ease;
+    padding-bottom: 0.5rem;
 }
 
-.hanCommands:hover {
-    transform: scale(1.1);
+.command-section h2::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-color), var(--accent-hover));
+    border-radius: 3px;
 }
 
-h4 {
-    font-size: 10px;
+.command-block {
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* For Safari */
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+/* --- FLICKER FIX (still works with the new design) --- */
+.command-block:has(pre.fullscreen) {
+    transform: none !important;
+    box-shadow: var(--shadow) !important;
+    border-color: var(--border-color) !important;
+}
+.command-block.no-hover {
+    transform: none !important;
+    box-shadow: var(--shadow) !important;
+    border-color: var(--border-color) !important;
+}
+
+.command-block:hover {
+    transform: translateY(-8px);
+    border-color: rgba(0, 217, 255, 0.3);
+    box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.5);
 }
 
 pre {
-    text-align: left;
-    white-space: pre-wrap;
-    background-color: #eee;
-    width: 80%; 
-    margin: 20px auto;
-    padding: 10px 20px;
-    border-radius: 40px;
-    font-size: 18px;
+    background-color: rgba(15, 15, 35, 0.8); /* Darker, more solid bg for code */
+    padding: 2rem;
+    margin: 0;
+    font-family: "Fira Code", "Courier New", Courier, monospace;
+    font-size: 1rem;
     cursor: pointer;
-    transition: all 0.6s ease;
-    z-index: 1;
-    font-family: "Courier New", Courier, monospace;
+    transition: background-color 0.3s ease;
+    overflow: auto;
+    color: #f8f8f2; /* Light text for code */
+}
+
+/* Simple syntax highlighting */
+pre .comment {
+    color: #6272a4; /* Muted blue for comments */
 }
 
 pre:hover {
-    transform: scale(1.03);
+    background-color: rgba(20, 20, 40, 0.9);
 }
 
 .fullscreen {
     position: fixed;
-    top: 5%;
-    left: 5%;
-    right: 5%;
-    bottom: 5%;
-    width: auto;
-    height: auto;
-    padding: 40px;
-    font-size: 2em;
-    border-radius: 20px;
-    z-index: 9999;
-    background-color: #fff;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    padding: 2rem;
+    font-size: 1.3rem;
+    border-radius: var(--border-radius);
+    z-index: 1000;
+    background-color: var(--primary-color);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
     overflow: auto;
+    cursor: default;
+    border: 1px solid var(--accent-color);
+    /* Prevent any other hover styles from interfering */
+    background-color: var(--primary-color) !important;
+    transform: none !important;
 }
 
 .footer {
-    background-color: rgb(99, 99, 99);
-    height: 200px;
-    padding-left: 20px;
-    padding-top: 20px;
-    color: black;
-
+    background: rgba(26, 26, 46, 0.5);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: var(--text-color);
+    padding: 3rem 1rem;
     display: flex;
-    justify-content: space-around;
-    align-items: flex-start;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 4rem;
+    border-top: 1px solid var(--border-color);
 }
 
-.footer div {
+.footer-section {
     flex: 1;
-    margin: 0 10px;
+    min-width: 200px;
+    margin: 0 1rem 1rem;
 }
 
-
-h2 {
-    font-size: 20px;
+.footer-section h2 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--accent-color);
 }
 
-a {
-    color: #000000;
+.footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer li {
+    margin-bottom: 0.8rem;
+    transition: transform 0.2s ease;
+}
+
+.footer li:hover {
+    transform: translateX(5px);
+}
+
+.footer a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.footer a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: -2px;
+    left: 0;
+    background-color: var(--accent-color);
+    transition: width 0.3s ease;
+}
+
+.footer a:hover {
+    color: var(--text-color);
+}
+
+.footer a:hover::after {
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .footer {
+        flex-direction: column;
+    }
+    
+    .footer-section {
+        margin: 0 0 2rem;
+    }
+    
+    h1 {
+        font-size: 2.5rem;
+    }
+    
+    .command-section h2 {
+        font-size: 1.5rem;
+    }
 }
